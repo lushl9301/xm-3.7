@@ -31,6 +31,11 @@ mv linux-3.4.4 linux-xm3-3.4.4
 ```sh
 fatal error: sys/types.h: No such file or directory
 compilation terminated.
+```
+
+> Solution 1
+
+```sh
 sudo ln -s /usr/include/x86_64-linux-gnu/sys /usr/include/sys 
 ```
 > Error 2
@@ -38,4 +43,39 @@ sudo ln -s /usr/include/x86_64-linux-gnu/sys /usr/include/sys
 ```sh
 fatal error: bits/predefs.h: No such file or directory
 compilation terminated.
+```
+
+> Solution 2
+
+```sh
+sudo apt-get install gcc-multilib
+```
+
+> Error 3
+
+```sh
+  - tools/xmcparser
+/bin/sh: 1: xml2-config: not found
+In file included from main.c:24:0:
+parser.h:18:27: fatal error: libxml/parser.h: No such file or directory
+compilation terminated.
+```
+> Error 4
+
+```sh
+# after installing libxslt1-dev_1.1.26-14.1_amd64.deb
+  - tools/xmcparser
+/usr/bin/ld: cannot find -lxml2
+collect2: error: ld returned 1 exit status
+```
+
+> Solution 3 & 4
+
+```sh
+
+```
+
+
+> Solution 3
+
 ```
