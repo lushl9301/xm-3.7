@@ -72,10 +72,7 @@ collect2: error: ld returned 1 exit status
 > Solution 3 & 4
 
 ```sh
-
-```
-
-
-> Solution 3
-
+sudo dpkg--add-architecture i386
+sudo apt-get update
+sudo apt-get install libxml2-dev:i386
 ```
