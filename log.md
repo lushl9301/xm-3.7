@@ -78,3 +78,21 @@ sudo dpkg--add-architecture i386
 sudo apt-get update
 sudo apt-get install libxml2-dev:i386
 ```
+
+
+--------------------
+
+
+### Linux SDK
+
+```sh
+cd linux-xm-3.4.4
+ls arch/x86/configs/
+# several configuration files shown
+cp arch/x86/configs/x86_64_defconfig arch/x86/configs/kontron_defconfig
+make kontron_defconfig
+cd arch/x86/xm/usr/bin/
+chmod +x ./*
+
+make XTRATUM_PATH=/opt/xm-sdk/xm ARCH=x86 vmlinux modules
+```
