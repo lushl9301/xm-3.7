@@ -26,6 +26,16 @@ mv linux-3.4.4 linux-xm3-3.4.4
 
 ### Compile XtratuM
 
+> Error 1
+
 ```sh
-sudo ln -s /usr/include/x86_64-linux-gnu/sys /usr/include/sys         
+fatal error: sys/types.h: No such file or directory
+compilation terminated.
+sudo ln -s /usr/include/x86_64-linux-gnu/sys /usr/include/sys 
+```
+> Error 2
+
+```sh
+fatal error: bits/predefs.h: No such file or directory
+compilation terminated.
 ```
