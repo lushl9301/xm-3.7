@@ -1,5 +1,7 @@
 # Log for XtratuM 3.7.3
 
+## Must use Debian 7.8 (Most Suitable Release)
+
 ### Linux Kernel Source Code
 
 ```sh
