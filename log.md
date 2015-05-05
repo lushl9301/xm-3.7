@@ -86,6 +86,12 @@ sudo apt-get install libxml2-dev:i386
 ### Linux SDK
 
 ```sh
+cd /home/lu/linux-xm3-3.4.4/arch/x86/xm/usr/bin
+# add "#define CONFIG_PHYSICAL_START 0x1000000" into relocate.c
+sudo gcc relocate.c -o relocate
+```
+
+```sh
 cd linux-xm-3.4.4
 ls arch/x86/configs/
 # several configuration files shown
@@ -96,3 +102,22 @@ chmod +x ./*
 
 make XTRATUM_PATH=/opt/xm-sdk/xm ARCH=x86 vmlinux modules
 ```
+
+> Install Linux SDK
+
+```sh
+sudo make distro-run
+cd arch/x86/xm/usr/
+sudo ./linux-3.4.4-xm.run
+```
+
+### Compile Examples
+
+> Error
+
+```sh
+Invalid ELF header
+xmeformat: Malformed ELF header
+```
+
+> Solution
