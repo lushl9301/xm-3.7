@@ -23,3 +23,9 @@ cp path/to/linux-xm3-3.4.4.patch .
 patch -p1 < linux-xm3-3.4.4.patch
 mv linux-3.4.4 linux-xm3-3.4.4
 ```
+
+### Compile XtratuM
+
+```sh
+sudo ln -s /usr/include/x86_64-linux-gnu/sys /usr/include/sys         
+```
