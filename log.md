@@ -120,4 +120,10 @@ Invalid ELF header
 xmeformat: Malformed ELF header
 ```
 
+this error comes from relocate
+
+```sh
+./relocate -i -l 0x1800000 linux-partition
+```
+Invalid ELF header
 > Solution
