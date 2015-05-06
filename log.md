@@ -85,6 +85,10 @@ sudo apt-get install libxml2-dev:i386
 
 ### Linux SDK
 
+> Error
+
+Cannot find drivers/iox/
+
 ```sh
 cd /home/lu/linux-xm3-3.4.4/arch/x86/xm/usr/bin
 # add "#define CONFIG_PHYSICAL_START 0x1000000" into relocate.c
