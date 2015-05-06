@@ -1,0 +1,2 @@
+fd is wrong @line 353
+current optind is pointed to the loadAddr, not linux-partition
