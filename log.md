@@ -125,5 +125,9 @@ this error comes from relocate
 ```sh
 ./relocate -i -l 0x1800000 linux-partition
 ```
+
+**FAIL** after fixing file handler
+**FAIL** after replacing /usr/include/sys by /usr/include/x86_64-linux-gnu/sys
+
 Invalid ELF header
 > Solution
