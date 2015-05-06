@@ -1,6 +1,6 @@
 # Log for XtratuM 3.7.3
 
-## Must use Debian 7.8 (Most Suitable Release)
+## Must use Debian 7.8 i386 (Most Suitable Release)
 
 ### Linux Kernel Source Code
 
@@ -28,70 +28,19 @@ mv linux-3.4.4 linux-xm3-3.4.4
 
 ### Compile XtratuM
 
-> Error 1
-
-```sh
-fatal error: sys/types.h: No such file or directory
-compilation terminated.
-```
-
-> Solution 1
-
-```sh
-sudo ln -s /usr/include/x86_64-linux-gnu/sys /usr/include/sys 
-```
-> Error 2
-
-```sh
-fatal error: bits/predefs.h: No such file or directory
-compilation terminated.
-```
-
-> Solution 2
-
-```sh
-sudo apt-get install gcc-multilib
-```
-
-> Error 3
-
-```sh
-  - tools/xmcparser
-/bin/sh: 1: xml2-config: not found
-In file included from main.c:24:0:
-parser.h:18:27: fatal error: libxml/parser.h: No such file or directory
-compilation terminated.
-```
-> Error 4
-
-```sh
-# after installing libxslt1-dev_1.1.26-14.1_amd64.deb
-  - tools/xmcparser
-/usr/bin/ld: cannot find -lxml2
-collect2: error: ld returned 1 exit status
-```
-
-> Solution 3 & 4
-
-```sh
-sudo dpkg--add-architecture i386
-sudo apt-get update
-sudo apt-get install libxml2-dev:i386
-```
-
-
---------------------
+> ALL OK
 
 
 ### Linux SDK
 
 > Error
 
-Cannot find drivers/iox/
+Cannot find drivers/iox/Kconfig
 
 > Solution
 
 NO
+Just fake one
 
 --------------------
 
@@ -99,10 +48,8 @@ NO
 cd linux-xm-3.4.4
 ls arch/x86/configs/
 # several configuration files shown
-cp arch/x86/configs/x86_64_defconfig arch/x86/configs/kontron_defconfig
+cp arch/x86/configs/xm_vmware_defconfig arch/x86/configs/kontron_defconfig
 make kontron_defconfig
-cd arch/x86/xm/usr/bin/
-chmod +x ./*
 
 make XTRATUM_PATH=/opt/xm-sdk/xm ARCH=x86 vmlinux modules
 ```
@@ -110,6 +57,10 @@ make XTRATUM_PATH=/opt/xm-sdk/xm ARCH=x86 vmlinux modules
 > Install Linux SDK
 
 ```sh
+cd arch/x86/xm/usr/bin/
+chmod +x ./*
+
+# cd back to linux source code folder
 sudo make distro-run
 cd arch/x86/xm/usr/
 sudo ./linux-3.4.4-xm.run
@@ -117,21 +68,10 @@ sudo ./linux-3.4.4-xm.run
 
 ### Compile Examples
 
-> Error
+ERROR
 
-```sh
-Invalid ELF header
-xmeformat: Malformed ELF header
-```
+Sometimes cannot fine xm-sdk-x86-xxx
 
-this error comes from relocate
-
-```sh
-./relocate -i -l 0x1800000 linux-partition
-```
-
-**FAIL** after fixing file handler
-**FAIL** after replacing /usr/include/sys by /usr/include/x86_64-linux-gnu/sys
-
-Invalid ELF header
 > Solution
+
+Just run XtratuM SDK installer to make a new sdk with the same name (easy way)
