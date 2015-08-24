@@ -66,6 +66,33 @@ cd arch/x86/xm/usr/
 sudo ./linux-3.4.4-xm.run
 ```
 
+```sh
+sudo ./build_linux -r custom_initrd -a 0x1000000 -o partition /opt/linux-sdk/vmlinux
+No relocate.
+```
+
+> solution
+
+Write a makefile in linux-xm3-3.4.4/arch/x86/xm/usr/bin/
+And add
+```c
+//added by my self
+#define CONFIG_PHYSICAL_START 0x1000000
+```
+in relocated.c
+Then $ make reloate
+```sh
+# LINUX_PATH: path to the XM LINUX SDK directory
+LINUX_PATH=/opt/linux-sdk/
+
+include $(LINUX_PATH)/common/rules.mk
+
+relocate:
+	gcc relocate.c -o relocate
+```
+
+cp this bin folder to /opt/linux-sdk/
+
 ### Compile Examples
 
 ERROR
