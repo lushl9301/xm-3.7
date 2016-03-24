@@ -1,4 +1,16 @@
-# xm-3.7
+# xm-3.7 linux
+
+
+### XtratuM installation
+```sg
+sudo apt-get install build-essential
+sudo apt-get install libncurses5-dev libxml2-dev libxml2-utils makeself xorriso
+
+cp xmconfig.x86 xmconfig
+make menuconfig
+make distro-run
+```
+
 
 ### Linux Kernel Source Code
 
@@ -53,14 +65,4 @@ cd ..
 sudo make distro-run
 cd arch/x86/xm/usr/
 sudo ./linux-3.4.4-xm.run
-```
-
-### XtratuM installation
-```sg
-sudo apt-get install build-essential
-sudo apt-get install libncurses5-dev libxml2-dev libxml2-utils makeself xorriso
-
-cp xmconfig.x86 xmconfig
-make menuconfig
-make distro-run
 ```
