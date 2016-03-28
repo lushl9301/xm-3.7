@@ -3,6 +3,7 @@
 
 ### XtratuM installation
 ```sh
+#debian 7.8 32-bit
 sudo apt-get install build-essential
 sudo apt-get install libncurses5-dev libxml2-dev libxml2-utils makeself xorriso
 
