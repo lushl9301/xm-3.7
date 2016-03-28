@@ -31,6 +31,7 @@ cp -r linux-3.4.4 linux-3.4.4.b
 ### Applying Patch
 
 ```sh
+cd PATH_TO_LINUX_KERNEL
 cp path/to/linux-xm3-3.4.4.patch .
 # you should have linux-3.4.4/ and linux-xm3-3.4.4.patch in the same directory
 patch -p1 < linux-xm3-3.4.4.patch
@@ -38,6 +39,14 @@ mv linux-3.4.4 linux-xm3-3.4.4
 ```
 
 ### Linux SDK
+
+```sh
+cd linux-xm-3.4.4
+ls arch/x86/configs/
+# several configuration files shown
+cp arch/x86/configs/xm_vmware_defconfig arch/x86/configs/kontron_defconfig
+make kontron_defconfig
+```
 
 > Error
 
@@ -47,15 +56,11 @@ Cannot find drivers/iox/Kconfig
 
 Creat this folder with empty file in it.
 
-```sh
-cd linux-xm-3.4.4
-ls arch/x86/configs/
-# several configuration files shown
-cp arch/x86/configs/xm_vmware_defconfig arch/x86/configs/kontron_defconfig
-make kontron_defconfig
-
+> Make Linux Kernel
+```
 make XTRATUM_PATH=/opt/xm-sdk/xm ARCH=x86 vmlinux modules
 ```
+
 
 > Install Linux SDK
 
