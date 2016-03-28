@@ -2,10 +2,11 @@
 
 
 ### XtratuM installation
-```sg
+```sh
 sudo apt-get install build-essential
 sudo apt-get install libncurses5-dev libxml2-dev libxml2-utils makeself xorriso
 
+cd PATH_TO_XM
 cp xmconfig.x86 xmconfig
 make menuconfig
 make distro-run
@@ -44,7 +45,7 @@ Cannot find drivers/iox/Kconfig
 
 > Solution
 
-Just fake one
+Creat this folder with empty file in it.
 
 ```sh
 cd linux-xm-3.4.4
