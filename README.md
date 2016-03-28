@@ -59,10 +59,54 @@ make XTRATUM_PATH=/opt/xm-sdk/xm ARCH=x86 vmlinux modules
 > Install Linux SDK
 
 ```sh
-cd arch/x86/xm/usr/bin/
+cd arch/x86/xm/usr/bin/ # in linux folder
 chmod +x ./*
-cd ..
+cd - # go back to linux folder
 sudo make distro-run
 cd arch/x86/xm/usr/
 sudo ./linux-3.4.4-xm.run
+```
+
+> Build Linux Kernel into XtratuM
+
+```
+cd xm-examples/xm3-examples/vmware-example
+make resident_sw.iso
+```
+
+> Run Image File
+
+```
+qemu -m 2046 -serial stdio -hda resident_sw.iso
+```
+
+> Error
+
+```
+XM Hypervisor (3.7 r3)
+Detected 2598.384MHz processor.
+>> HWClocks [TSC clock (2598384Khz)]
+[CPU0] >> HwTimer [i8253 timer (1193Khz)]
+1 Partition(s) created
+P0 ("linux-partition":0:1) flags: [ SYSTEM FP ]:
+    [0xa0000:0xa0000 - 0xfffff:0xfffff] flags: 0x10
+    [0x1800000:0x1800000 - 0x217fffff:0x217fffff] flags: 0x0
+    [0xc0000000:0xc0000000 - 0xefffffff:0xefffffff] flags: 0x12
+[TRAP] PAGE_FAULT(0xe)
+CPU state:
+EIP: 0x139:[<0xfbf801ae>] ESP: 0x141:[<0xfbf6fe74>] EFLAGS: 0x286  
+EAX: 0x0 EBX: 0x1e7d001 ECX: 0xfbf6fee4 EDX: 0x1e7d000
+ESI: 0x1 EDI: 0x1e7d000 EBP: 0xfe1
+CR2: 0x1e7d000
+Partition PANIC [0xfc030004:id(0)]:
+error emulating IRQ (14) bad vector (14)
+CPU state:
+EIP: 0x139:[<0xfbf801ae>] ESP: 0x141:[<0xfbf6fe74>] EFLAGS: 0x286  
+EAX: 0x0 EBX: 0x1e7d001 ECX: 0xfbf6fee4 EDX: 0x1e7d000
+ESI: 0x1 EDI: 0x1e7d000 EBP: 0xfe1
+CR2: 0x1e7d000
+[HM] 5339103:XM_HM_EV_INTERNAL_ERROR (0):PART(0)
+ip: 0xfbf801ae flags: 0x286
+[HM] XM_HM_AC_PARTITION_HALT(7) XM_HM_LOG_ENABLED
+[HM] Partition 0 halted
 ```
