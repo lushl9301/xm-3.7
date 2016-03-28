@@ -67,7 +67,7 @@ cd arch/x86/xm/usr/
 sudo ./linux-3.4.4-xm.run
 ```
 
-> Build Linux Kernel into XtratuM
+### Build Linux Kernel into XtratuM
 
 ```
 cd xm-examples/xm3-examples/vmware-example
