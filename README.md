@@ -50,13 +50,17 @@ make kontron_defconfig
 
 > Error
 
+
 Cannot find drivers/iox/Kconfig
 
 > Solution
 
+
 Creat this folder with empty file in it.
 
 > Make Linux Kernel
+
+
 ```
 make XTRATUM_PATH=/opt/xm-sdk/xm ARCH=x86 vmlinux modules
 ```
@@ -81,6 +85,7 @@ make resident_sw.iso
 ```
 
 > Run Image File
+
 
 ```
 qemu -m 2046 -serial stdio -hda resident_sw.iso
